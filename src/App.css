@@ -18,7 +18,7 @@ body {
 	margin: 20px auto;
 	height: 80px;
 	justify-content: space-between;
-	width: 90%;
+	width: 95%;
 	align-items: center;
 }
 
@@ -38,15 +38,17 @@ body {
 }
 
 .new-task-section button {
-	margin-right: 12px;
+	margin: 0 12px;
 	width: 20%;
 	height: 37px;
-	background-color: rgb(7, 151, 7);
-	border: rgb(7, 151, 7);
+	background-color: #079707;
+	border: #079707;
 	border-radius: 5px;
+	font-size: 0.75rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	color: white;
+	cursor: pointer;
 	font-family: 'Kanit', sans-serif;
 }
 
@@ -56,17 +58,16 @@ body {
 }
 
 .new-task-section button:hover {
-	background-color: #389e0d;
-	cursor: pointer;
+	background-color: #44b315;
 }
 
 .new-task-section button:active {
-	background-color: #389e0d;
+	background-color:#44b315;
 }
 
 .task-list-section {
 	margin: 20px auto;
-	width: 90%;
+	width: 91%;
 	border-radius: 14px;
 	background-color: #ffd666;
 	overflow: hidden;
@@ -98,12 +99,79 @@ body {
 	word-break: break-all;
 }
 
-.task-list-item input {
-	width: 100%;
-	height: 100%;
-	font-family: 'Kanit', sans-serif;
+.task-list-item .action-btn {
+	display: flex;
+	justify-content: space-around;
 }
 
-.task-list-item .delete-icon {
+.task-list-item .action-btn .delete-icon{
+	padding: 0px 5px;
+}
+
+.task-list-item .action-btn .delete-icon:focus {
 	outline: none;
+}
+
+.task-list-item .action-btn .edit-icon{
+	padding: 0px 5px;
+}
+
+.task-list-item .action-btn .edit-icon:focus {
+	outline: none;
+}
+
+.edit-form {
+	display: flex;
+	justify-content: space-around;
+}
+
+.edit-form input {
+	width: 100%;
+	margin-right: 2px;
+	border-radius: 5px;
+	font-family: 'Kanit', sans-serif;
+	font-size: 1rem;
+	border-style: none;
+}
+
+.edit-form input:focus {
+	outline: none;
+}
+
+.edit-form .btn-cancel {
+	background-color: #f5222d;
+	border-radius: 10px;
+	border-style: none;
+	font-family: 'Kanit', sans-serif;
+	color: white;
+	font-size: 0.9rem;
+	margin: 0px 2px;
+	cursor: pointer;
+}
+
+.edit-form .btn-cancel:focus {
+	outline: none;
+}
+
+.edit-form .btn-cancel:hover {
+	background-color: #e2454d;
+}
+
+.edit-form .btn-save {
+	background-color: #079707;
+	border-radius: 10px;
+	border-style: none;
+	font-family: 'Kanit', sans-serif;
+	color: white;
+	font-size: 0.9rem;
+	margin-left: 2px;
+	cursor: pointer;
+}
+
+.edit-form .btn-save:focus {
+	outline: none;
+}
+
+.edit-form .btn-save:hover {
+	background-color: #44b315;
 }

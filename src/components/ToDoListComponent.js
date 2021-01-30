@@ -13,12 +13,11 @@ function TodoListComponent() {
 		})
 	}
 
-	const addNewTask = () => {
+	const addNewTask = (e) => {
 		// check user submit blank input field
+		e.preventDefault()
 		if(newTask.text !== ''){
 			setTaskList(prevList => [...prevList, newTask])
-		}else{
-			console.log('Please input your task')
 		}
 		// clear task input field
 		setNewTask({id: '', text: '', isDone: false})
@@ -26,17 +25,27 @@ function TodoListComponent() {
 
 	const handleDeleteTask = (id) => {
 		setTaskList(prevList => prevList.filter(item => item.id !== id))
-		console.log(`deleted id = ${id}`)
+		// console.log(`deleted id = ${id}`)
 	}
 
-	const handleUpdateTask = (id) => {
-		const updateTaskList = taskList.map(task => {
+	const handleUpdateTaskStatus = (id) => {
+		const updateStatus = taskList.map(task => {
 			if(task.id === id){
 				task.isDone = !task.isDone
 			}
 			return task
 		})
-		setTaskList(updateTaskList)
+		setTaskList(updateStatus)
+	}
+	
+	const handleUpdateTaskText = (id, newtext) => {
+		const updateText= taskList.map(task => {
+			if(task.id === id){
+				task.text = newtext
+			}
+			return task
+		})
+		setTaskList(updateText)
 	}
 
 	return (
@@ -44,12 +53,12 @@ function TodoListComponent() {
 			<div className="task-list-title">
 				<p>Simple To-Do Lists</p>
 			</div>
-			<div className="new-task-section">
-				<input placeholder="Enter task" value={newTask.text} onChange={handleInputNewTask}></input>
-				<button onClick={addNewTask}>Add Task</button>
-			</div>
+			<form onSubmit={addNewTask} className="new-task-section">
+				<input placeholder="Enter new task" value={newTask.text} required onChange={handleInputNewTask}></input>
+				<button type="submit">Add Task</button>
+			</form>
 			<div className="task-list-section">
-				<TaskListComponent tasks={taskList} deleteTask={handleDeleteTask} updateTask={handleUpdateTask} />
+				<TaskListComponent tasks={taskList} deleteTask={handleDeleteTask} updateTaskStatus={handleUpdateTaskStatus} updateTaskText={handleUpdateTaskText} />
 			</div>
 		</div>
 	)
