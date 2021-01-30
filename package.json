@@ -1,7 +1,8 @@
 {
   "name": "to-do-list-react",
   "version": "0.1.0",
-  "private": true,
+	"private": true,
+	"homepage": "/simple-to-do-lists-react",
   "dependencies": {
     "@ant-design/icons": "^4.4.0",
     "@testing-library/jest-dom": "^5.11.9",
